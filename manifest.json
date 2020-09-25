@@ -1,22 +1,18 @@
 {
-  "name": "Native HLS Playback",
-  "version": "0.12.4",
-  "description": "Allow the browser to play HLS video urls (m3u8) 'natively'",
+  "name": "HLS and DASH Playback",
+  "version": "0.12.5",
+  "description": "Allow the browser to play HLS and DASH video urls (m3u8/mpd) 'natively'",
   "manifest_version": 2,
   "icons": { "128": "img/icon128.png" },
-  "background": { "scripts": [ "event.js", "global.js"] },
+  "background": { "scripts": [ "background.js"] },
   "content_security_policy": "script-src 'self' blob:; object-src 'self'",
   "permissions": [
-    "tabs",
-    "*://*/*.m3u8*",
+    "*://*/*.m3u8", 
+    "*://*/*.mpd",
     "webRequest",
     "webRequestBlocking",
     "storage"
   ],
-  "options_ui": {
-    "page": "options.html",
-    "chrome_style": true
-  },
   "browser_action": {
       "default_title": "Disable",
       "default_icon": "img/icon128.png",
