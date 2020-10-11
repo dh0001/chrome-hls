@@ -1,25 +1,25 @@
-enable_button = document.getElementById('btnEnable')
-enable_button.addEventListener('click', updateEnabled);
-enable_zoom_button = document.getElementById('btnZoomEnable')
-enable_zoom_button.addEventListener('click', updateZoomEnabled);
+enable_button = document.getElementById('btnToggleRedirects')
+enable_button.addEventListener('click', toggleRedirects);
+enable_zoom_button = document.getElementById('btnToggleZoom')
+enable_zoom_button.addEventListener('click', toggleZoom);
 
 chrome.runtime.sendMessage("getState", (state) => {
-   state[0] ? enable_button.innerHTML = "Enabled" : enable_button.innerHTML = "Disabled";
+   state[0] ? enable_button.innerHTML = "Redirects Enabled" : enable_button.innerHTML = "Redirects Disabled";
    state[1] ? enable_zoom_button.innerHTML = "Zoom Enabled" : enable_zoom_button.innerHTML = "Zoom Disabled";
 });
 
 
-function updateEnabled() {
-  if (enable_button.innerHTML == "Enabled") {
-  	enable_button.innerHTML = "Disabled"
+function toggleRedirects() {
+  if (enable_button.innerHTML == "Redirects Enabled") {
+  	enable_button.innerHTML = "Redirects Disabled"
   } else {
-  	enable_button.innerHTML = "Enabled"
+  	enable_button.innerHTML = "Redirects Enabled"
   }
   chrome.runtime.sendMessage(enable_button.innerHTML);
 }
 
 
-function updateZoomEnabled() {
+function toggleZoom() {
   if (enable_zoom_button.innerHTML == "Zoom Enabled") {
   	enable_zoom_button.innerHTML = "Zoom Disabled"
   } else {

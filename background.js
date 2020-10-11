@@ -5,16 +5,19 @@ if (zoomEnabled == undefined) zoomEnabled = true;
 
 chrome.runtime.onMessage.addListener(
 	function (request, sender, sendResponse) {
+		
 		if (request == "getState") {
 			sendResponse([enabled, zoomEnabled]);
-		} else if (request == "Enabled" || request == "Disabled"){
-			enabled = request == "Enabled";
-			enabled ? chrome.browserAction.setIcon({ path: "img/icon128.png" }) : chrome.browserAction.setIcon({ path: "img/icon128grey.png" })
+
+		} else if (request == "Redirects Enabled" || request == "Redirects Disabled"){
+			enabled = request === "Redirects Enabled";
+			enabled ? chrome.browserAction.setIcon({ path: "img/multimedia.png" }) : chrome.browserAction.setIcon({ path: "img/multimediaoff.png" })
 			chrome.storage.local.set({
 				enabled: enabled
 			  })
+
 		} else if (request == "Zoom Enabled" || request == "Zoom Disabled"){
-			zoomEnabled = request == "Zoom Enabled";
+			zoomEnabled = request === "Zoom Enabled";
 			chrome.storage.local.set({
 				zoomEnabled: zoomEnabled
 			  })
@@ -25,21 +28,27 @@ chrome.runtime.onMessage.addListener(
 chrome.webRequest.onBeforeRequest.addListener(
 	function (info) {
 		if (enabled) {
-			if (info.url.split("?")[0].split("#")[0].endsWith(".m3u8")) {
-				var playerUrl = chrome.runtime.getURL('hls.html') + "?video=" + info.url
-				// if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
-				// 	chrome.tabs.update(info.tabId, { url: playerUrl });
-				// 	return { cancel: true }
-				// } else {
-				return { redirectUrl: playerUrl }
-			}
-			if (info.url.split("?")[0].split("#")[0].endsWith(".mpd")) {
-				var playerUrl = chrome.runtime.getURL('dash.html') + "?video=" + info.url
-				return { redirectUrl: playerUrl }
-			}
+			var playerUrl = chrome.runtime.getURL('hls.html') + "?video=" + info.url
+			// if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+			// 	chrome.tabs.update(info.tabId, { url: playerUrl });
+			// 	return { cancel: true }
+			// } else {
+			return { redirectUrl: playerUrl }
 		}
 	},
-	{ urls: ["*://*/*.m3u8", "*://*/*.mpd"], types: ["main_frame"] },
+	{ urls: ["*://*/*.m3u8"], types: ["main_frame"] },
+	["blocking"]
+);
+
+
+chrome.webRequest.onBeforeRequest.addListener(
+	function (info) {
+		if (enabled) {
+			var playerUrl = chrome.runtime.getURL('dash.html') + "?video=" + info.url
+			return { redirectUrl: playerUrl }
+		}
+	},
+	{ urls: ["*://*/*.mpd"], types: ["main_frame"] },
 	["blocking"]
 );
 

@@ -1,25 +1,32 @@
 # HLS and DASH Playback
 
-Allows HLS and DASH playback in firefox browsers
+HLS and DASH playback in browsers
 
-# Usage
+This extension redirects m3u8 and mpd files to extension pages embedding [hls.js][] and [dash.js][], and attempts to play the files using those libraries.
 
-<!-- 1. Install extension from [chrome webstore][]/[mozilla addons][] -->
-Click on any m3u8 link inside firefox to play it directly in a new tab
+The menu opened from the icon has two capabilities:
 
-The extension can be disabled by clicking on the icon if the request filter on m3u8 links is too disruptive.
+  * Redirect behavior can be toggled, allowing m3u8 and mpd files to be downloaded normally.
+  * Zoom can be toggled, changing if the video should be resized to fit the screen.
 
-<!-- [chrome webstore]:
-[mozilla addons]: -->
+[hls.js]: https://github.com/video-dev/hls.js
+[dash.js]: https://github.com/Dash-Industry-Forum/dash.js
 
-# Some Developer Notes 
+# Links
 
-By default, the browser downloads any m3u8 files that were requested. This plugin checks any links to see if they are m3u8.
-If that's the case, it opens a new tab on a video player that uses the [hlsjs][] library. This extension is just a wrapper of [hlsjs][].
+  * [Mozilla addons][https://addons.mozilla.org/en-US/firefox/addon/hls-and-dash-playback/]
+<!-- [chrome webstore][]/
+[chrome webstore]:-->
 
-[hlsjs]: https://github.com/video-dev/hls.js
-[dashjs]: https://github.com/Dash-Industry-Forum/dash.js
 
-#License
-Released under [Apache 2.0 License](LICENSE)
-[Dash.js license](dashjs_license.md)
+# License
+
+Released under [MIT license](LICENSE)
+
+[dash.js license](dashjs_license.md)
+
+[hls.js license](hlsjs_license)
+
+[chrome-hls license](chrome_hls_license)
+
+Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)
