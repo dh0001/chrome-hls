@@ -14,7 +14,7 @@ The menu opened from the icon has two capabilities:
 
 # Links
 
-  * [Mozilla addons][https://addons.mozilla.org/en-US/firefox/addon/hls-and-dash-playback/]
+  * [Mozilla addons](https://addons.mozilla.org/en-US/firefox/addon/hls-and-dash-playback/)
 <!-- [chrome webstore][]/
 [chrome webstore]:-->
 
