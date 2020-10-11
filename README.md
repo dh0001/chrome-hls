@@ -2,12 +2,12 @@
 
 HLS and DASH playback in browsers
 
-This extension redirects m3u8 and mpd files to extension pages embedding [hls.js][] and [dash.js][], and attempts to play the files using those libraries.
+This extension redirects m3u8 and mpd files to extension pages embedding [hls.js][] and [dash.js][], and attempts to play the file using those libraries.
 
-The menu opened from the icon has two capabilities:
+Clicking on the icon opens a menu where you can:
 
-  * Redirect behavior can be toggled, allowing m3u8 and mpd files to be downloaded normally.
-  * Zoom can be toggled, changing if the video should be resized to fit the screen.
+  * Toggle redirect behavior, allowing m3u8 and mpd files to be downloaded normally.
+  * Toggle zoom, changing if the video should be resized to fit the screen.
 
 [hls.js]: https://github.com/video-dev/hls.js
 [dash.js]: https://github.com/Dash-Industry-Forum/dash.js
