@@ -12,14 +12,14 @@ The menu opened from the icon has two capabilities:
 [hls.js]: https://github.com/video-dev/hls.js
 [dash.js]: https://github.com/Dash-Industry-Forum/dash.js
 
-# Links
+## Links
 
   * [Mozilla addons](https://addons.mozilla.org/en-US/firefox/addon/hls-and-dash-playback/)
 <!-- [chrome webstore][]/
 [chrome webstore]:-->
 
 
-# License
+## License
 
 Released under [MIT license](LICENSE)
 

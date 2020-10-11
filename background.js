@@ -11,7 +11,7 @@ chrome.runtime.onMessage.addListener(
 
 		} else if (request == "Redirects Enabled" || request == "Redirects Disabled"){
 			enabled = request === "Redirects Enabled";
-			enabled ? chrome.browserAction.setIcon({ path: "img/multimedia.png" }) : chrome.browserAction.setIcon({ path: "img/multimediaoff.png" })
+			enabled ? chrome.browserAction.setIcon({ path: "img/multimedia.svg" }) : chrome.browserAction.setIcon({ path: "img/multimediaoff.svg" })
 			chrome.storage.local.set({
 				enabled: enabled
 			  })
